@@ -102,7 +102,7 @@ def simulate_n_generations(height, width, generations):
     random_grid = create_random_grid(height, width)
     yield random_grid
     sim = simulate(height, width)
-    for i in range(1, generations):
+    for _ in range(1, generations):
         progeny = get_progeny(random_grid, sim)
         yield progeny
         random_grid = progeny
@@ -112,10 +112,10 @@ if __name__ == '__main__':
     height = int(input("Grid height"))
     width = int(input("Grid width"))
     generations = int(input("Generations"))
-    simul = simulate_n_generations(height, width, generations)
+    simulation = simulate_n_generations(height, width, generations)
     for i in range(generations):
         print(f'Generation {i}\n')
-        print(next(simul))
+        print(next(simulation))
 
 
 
